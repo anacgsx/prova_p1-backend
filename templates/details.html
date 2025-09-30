@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="h5">{{ category.name }}</h2>
+<p><strong>Descrição:</strong> {{ category.description }}</p>
+<p><strong>Status:</strong>
+  {% if category.is_active %}<span class="badge bg-success">Ativa</span>{% else %}<span class="badge bg-secondary">Inativa</span>{% endif %}
+</p>
+<p><strong>ID:</strong> {{ category.id }}</p>
+<a href="/" class="btn btn-outline-light mt-3">Voltar</a>
+<form method="post" action="/category/{{ category.id }}/delete"
+      onsubmit="return confirm('Tem certeza que deseja excluir {{ category.name }}?');">
+  <button class="btn btn-danger mt-3" type="submit">Excluir Categoria</button>
+</form>
+{% endblock %}

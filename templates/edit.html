@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="h5 mb-3">Editar Categoria</h2>
+<form method="post" action="/category/{{ category.id }}/edit">
+  <div class="mb-3">
+    <label class="form-label">Nome</label>
+    <input name="name" required class="form-control" value="{{ category.name }}">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Descrição</label>
+    <input name="description" class="form-control" value="{{ category.description }}">
+  </div>
+  <button class="btn btn-primary">Salvar</button>
+</form>
+{% endblock %}
